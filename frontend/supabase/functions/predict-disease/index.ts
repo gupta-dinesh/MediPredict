@@ -563,7 +563,12 @@ function predictDisease(symptomsInput: string[]): PredictionResponse {
     recommendations: topResults[0].recommendations,
     possibleDiseases: topResults.map(r => ({
       disease: r.disease,
-      probability: Math.round(r.score * 100),
+      possibleDiseases: topResults.map(r => ({
+      disease: r.disease,
+      probability: Math.min(
+        Math.round(r.score * 100),
+        100
+      ),
     })),
   };
 }

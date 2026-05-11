@@ -1,6 +1,8 @@
 import { useAuth } from './contexts/AuthContext';
 import { LandingPage } from './components/LandingPage';
 import { Dashboard } from './components/Dashboard';
+import { Route, Routes } from 'react-router-dom';
+import { DoctorConsultation } from './components/DoctorConsultation';
 
 function App() {
   const { user, loading } = useAuth();
@@ -16,7 +18,16 @@ function App() {
     );
   }
 
-  return user ? <Dashboard /> : <LandingPage />;
+  return user ? 
+    <Routes>
+        <Route path="/" element={<Dashboard />} />
+
+        <Route
+          path="/doctor-consultation"
+          element={<DoctorConsultation />}
+        />
+    </Routes> 
+  : <LandingPage />;
 }
 
 export default App;
