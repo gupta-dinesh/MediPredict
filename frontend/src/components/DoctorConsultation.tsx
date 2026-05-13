@@ -180,8 +180,8 @@ export function DoctorConsultation() {
                         <span>{doctor.availability}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
-                        <DollarSign className="w-4 h-4 mr-2 text-gray-400" />
-                        <span className="font-semibold">${doctor.consultation_fee}</span>
+                        <span className="mr-2 text-gray-400 font-semibold leading-none">₹</span>
+                        <span className="font-semibold">{doctor.consultation_fee} /-</span>
                       </div>
                     </div>
 
@@ -236,7 +236,7 @@ export function DoctorConsultation() {
                           {selectedDoctor.experience_years} years exp.
                         </span>
                         <span className="text-sm font-semibold text-gray-900">
-                          ${selectedDoctor.consultation_fee}
+                          ₹ {selectedDoctor.consultation_fee}/-
                         </span>
                       </div>
                     </div>
